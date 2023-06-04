@@ -1,0 +1,13 @@
+{
+    "commentTranslate.targetLanguage": "zh-CN",
+    "commentTranslate.hover.enabled": true,
+    "better-comments.highlightPlainText": true,
+    "caiyunTranslate.targetLang": "zh",
+    "deeplTranslate.authKey": "16tuyxgwz1njmo15r0cm",
+    "commentTranslate.source": "Google",
+    "commentTranslate.hover.concise": true,
+    "commentTranslate.hover.string": true,
+    "commentTranslate.hover.variable": true,
+    "commentTranslate.multiLineMerge": true,
+    "commentTranslate.googleTranslate.tld": "cn"
+}

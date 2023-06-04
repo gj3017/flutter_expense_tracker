@@ -31,6 +31,7 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //判断当前系统是明亮模式还是暗黑模式
     final isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Container(

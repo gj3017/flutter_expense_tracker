@@ -15,6 +15,7 @@ class ChartBar extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4),
+        //FractionallySizedBox，通过比例的方式控制子控件占据父控件的空间大小
         child: FractionallySizedBox(
           heightFactor: fill, // 0 <> 1
           child: DecoratedBox(

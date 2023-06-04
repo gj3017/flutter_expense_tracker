@@ -21,7 +21,7 @@ class _NewExpenseState extends State<NewExpense> {
   final _amountController = TextEditingController();
   DateTime? _selectedDate;
   Category _selectedCategory = Category.leisure;
-
+// 这里通过异步方式获取用户选择的日期，async用于申明一个函数是异步的，await用于等待异步方法执行完成，这里主要使用showDatePicker
   void _presentDatePicker() async {
     final now = DateTime.now();
     final firstDate = DateTime(now.year - 1, now.month, now.day);
@@ -37,6 +37,13 @@ class _NewExpenseState extends State<NewExpense> {
   }
 
   void _showDialog() {
+    /* Platform provides information such as the operating system,
+     the hostname of the computer, the value of environment variables, 
+     the path to the running program, 
+     and other global properties of the program being run.
+     通过Platform判断当前系统是什么类型。
+     从而展示不同的对话框dialog
+      */
     if (Platform.isIOS) {
       showCupertinoDialog(
           context: context,
@@ -74,6 +81,7 @@ class _NewExpenseState extends State<NewExpense> {
   }
 
   void _submitExpenseData() {
+    /* 对用户输入的数字进行验证，这里使用double.tryParse，用户输入非法字符都会返回null */
     final enteredAmount = double.tryParse(_amountController
         .text); // tryParse('Hello') => null, tryParse('1.12') => 1.12
     final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
@@ -92,9 +100,11 @@ class _NewExpenseState extends State<NewExpense> {
         category: _selectedCategory,
       ),
     );
+    // 提交数据后，立刻返回主界面
     Navigator.pop(context);
   }
 
+// 注意：文本编辑控制器都要进行回收，防止内存溢出
   @override
   void dispose() {
     _titleController.dispose();
@@ -104,6 +114,7 @@ class _NewExpenseState extends State<NewExpense> {
 
   @override
   Widget build(BuildContext context) {
+    // 获取键盘的高度
     final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
     return LayoutBuilder(builder: (ctx, constraints) {
       final width = constraints.maxWidth;

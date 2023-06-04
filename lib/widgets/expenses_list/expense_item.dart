@@ -26,7 +26,7 @@ class ExpenseItem extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '\$${expense.amount.toStringAsFixed(2)}',
+                  '\$${expense.amount.toStringAsFixed(2)}', //四舍五入并保留小数点后2位，同时转换成字符串
                 ),
                 const Spacer(),
                 Row(

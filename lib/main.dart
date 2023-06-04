@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_expense_tracker/widgets/expenses.dart';
 
+//创建一个全局可用的颜色主题，给定一个颜色“种子”，flutter自动生成一套颜色主题
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
 );
@@ -19,6 +20,7 @@ void main() {
   // ]).then((fn) {
   runApp(
     MaterialApp(
+      //在MaterialApp中通过theme和darkTheme分别设置明亮和暗黑两种模式的主题
       darkTheme: ThemeData.dark().copyWith(
         useMaterial3: true,
         colorScheme: kDarkColorScheme,

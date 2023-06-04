@@ -17,6 +17,7 @@ class ExpensesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: expenses.length,
+      //通过Dismissable实现列表项可左滑删除的操作，这就要求必须使用Key标识每一行
       itemBuilder: (ctx, index) => Dismissible(
         key: ValueKey(expenses[index]),
         background: Container(

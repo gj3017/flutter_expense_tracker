@@ -29,7 +29,10 @@ class _ExpensesState extends State<Expenses> {
       category: Category.leisure,
     ),
   ];
-
+/* 
+1、底部弹出界面使用showModalBottomSheet
+2、子组件里有SingleChildScrollView，所以isScrollControlled要设为true
+ */
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
       useSafeArea: true,
@@ -50,6 +53,7 @@ class _ExpensesState extends State<Expenses> {
     setState(() {
       _registeredExpenses.remove(expense);
     });
+    /* 通过ScaffoldMessenger提供SnackBar和MaterialBanner功能*/
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -92,6 +96,7 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
+      //通过对屏幕宽度进行判断，展示不同的布局
       body: width < 600
           ? Column(
               children: [
